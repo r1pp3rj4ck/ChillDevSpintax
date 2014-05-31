@@ -5,7 +5,7 @@
  *
  * @author Rafał Wrzeszcz <rafal.wrzeszcz@wrzasq.pl>
  * @copyright 2014 © by Rafał Wrzeszcz - Wrzasq.pl.
- * @version 0.0.1
+ * @version 0.0.2
  * @since 0.0.1
  * @package ChillDev\Spintax
  */
@@ -19,7 +19,7 @@ use Countable;
  *
  * @author Rafał Wrzeszcz <rafal.wrzeszcz@wrzasq.pl>
  * @copyright 2014 © by Rafał Wrzeszcz - Wrzasq.pl.
- * @version 0.0.1
+ * @version 0.0.2
  * @since 0.0.1
  * @package ChillDev\Spintax
  */
@@ -173,7 +173,7 @@ class Content implements Countable
      * Returns list of all possible paths.
      *
      * @return array List of all possible paths.
-     * @version 0.0.1
+     * @version 0.0.2
      * @since 0.0.1
      */
     public function getPaths()
@@ -188,6 +188,18 @@ class Content implements Countable
                 foreach ($child->getPaths() as $path) {
                     \array_unshift($path, $key);
                     $paths[] = $path;
+                }
+            }
+
+            if (isset($this->next)) {
+                $prefixes = $paths;
+                $paths = [];
+
+                // merge with all further paths
+                foreach ($this->next->getPaths() as $path) {
+                    foreach ($prefixes as $prefix) {
+                        $paths[] = array_merge($prefix, $path);
+                    }
                 }
             }
 

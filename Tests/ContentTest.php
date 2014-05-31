@@ -5,7 +5,7 @@
  *
  * @author Rafał Wrzeszcz <rafal.wrzeszcz@wrzasq.pl>
  * @copyright 2014 © by Rafał Wrzeszcz - Wrzasq.pl.
- * @version 0.0.1
+ * @version 0.0.2
  * @since 0.0.1
  * @package ChillDev\Spintax
  */
@@ -15,11 +15,12 @@ namespace ChillDev\Spintax\Tests;
 use PHPUnit_Framework_TestCase;
 
 use ChillDev\Spintax\Content;
+use ChillDev\Spintax\Parser;
 
 /**
  * @author Rafał Wrzeszcz <rafal.wrzeszcz@wrzasq.pl>
  * @copyright 2014 © by Rafał Wrzeszcz - Wrzasq.pl.
- * @version 0.0.1
+ * @version 0.0.2
  * @since 0.0.1
  * @package ChillDev\Spintax
  */
@@ -164,6 +165,22 @@ class ContentTest extends PHPUnit_Framework_TestCase
             ],
             $root->getPaths(),
             'Content::getPaths() should return list of all possible paths.'
+        );
+    }
+
+    /**
+     * @test
+     * @version 0.0.2
+     * @since 0.0.2
+     */
+    public function getPaths1()
+    {
+        $root = Parser::parse('{Hi|Hello|Howdy|Hola|Hey} there {Mr|Mrs|Miss} {Smith|Jones}!');
+
+        $this->assertCount(
+            30,
+            $root->getPaths(),
+            'Content::getPaths() should generate paths including all further combinations.'
         );
     }
 
