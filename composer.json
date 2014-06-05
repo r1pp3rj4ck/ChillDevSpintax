@@ -43,5 +43,10 @@
         "psr-4": {
             "ChillDev\\Spintax\\": ""
         }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "1.0.x-dev"
+        }
     }
 }
