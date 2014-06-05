@@ -16,7 +16,7 @@
     <!-- test suites definitions -->
     <testsuites>
         <testsuite name="ChillDev DependencyInjection Extra">
-            <directory>./Tests</directory>
+            <directory>./tests</directory>
             <exclude>./vendor</exclude>
         </testsuite>
     </testsuites>
@@ -27,7 +27,7 @@
             <directory suffix=".php">./</directory>
             <exclude>
                 <directory suffix=".php">./Resources</directory>
-                <directory suffix=".php">./Tests</directory>
+                <directory suffix=".php">./tests</directory>
                 <directory suffix=".php">./vendor</directory>
             </exclude>
         </whitelist>

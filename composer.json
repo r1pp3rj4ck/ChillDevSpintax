@@ -41,7 +41,7 @@
     },
     "autoload": {
         "psr-4": {
-            "ChillDev\\Spintax\\": ""
+            "ChillDev\\Spintax\\": "lib/ChillDev/Spintax"
         }
     }
 }
